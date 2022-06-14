@@ -2,6 +2,7 @@ package database
 
 import (
 	"fmt"
+	"github.com/omerfruk/Go-generics-api/model"
 	"gorm.io/driver/postgres"
 	"gorm.io/gorm"
 )
@@ -30,5 +31,6 @@ func DB() *gorm.DB {
 }
 
 func AutoMigrate() {
-	db.Migrator()
+	db.AutoMigrate(model.User{})
+	db.AutoMigrate(model.Book{})
 }
