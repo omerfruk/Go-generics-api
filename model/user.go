@@ -16,8 +16,3 @@ type User struct {
 type UserService struct {
 	services.BaseService[User]
 }
-
-func (s UserService) GetAll() ([]User, error) {
-	users, err := s.GetAll()
-	return users, err
-}

@@ -4,14 +4,6 @@ import (
 	"gorm.io/gorm"
 )
 
-type IBaseService[t any] interface {
-	GetAll()
-	Create(t)
-	GetById(int)
-	Update(t)
-	Delete(t)
-}
-
 type BaseService[T any] struct {
 	DB *gorm.DB
 }
