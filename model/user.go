@@ -1,7 +1,6 @@
 package model
 
 import (
-	"github.com/omerfruk/Go-generics-api/services"
 	"gorm.io/gorm"
 )
 
@@ -11,8 +10,4 @@ type User struct {
 	Surname  string `json:"surname"`
 	Email    string `json:"email"`
 	Password string `json:"password"`
-}
-
-type UserService struct {
-	services.BaseService[User]
 }
