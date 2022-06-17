@@ -16,6 +16,7 @@ func Setup(app fiber.Router) {
 	app.Get("/users", userService.GetAll)
 	app.Get("/users/:id", userService.GetById)
 	app.Post("/users", userService.Create)
+	// Todo: Burada id almamıza gerek yok
 	app.Post("/users/:id", userService.Update)
 	app.Delete("/users/:id", userService.Delete)
 	app.Get("/users/email/:email", userService.GetByEmail)
@@ -23,6 +24,7 @@ func Setup(app fiber.Router) {
 	app.Get("/books", bookService.GetAll)
 	app.Get("/books/:id", bookService.GetById)
 	app.Post("/books", bookService.Create)
+	// Todo: Burada id almamıza gerek yok
 	app.Post("/books/:id", bookService.Update)
 	app.Delete("/books/:id", bookService.Delete)
 	app.Get("/books/author/:author", bookService.GetBookByAuthor)
