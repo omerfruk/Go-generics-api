@@ -4,6 +4,14 @@ import (
 	"gorm.io/gorm"
 )
 
+type IBaseService interface {
+	GetAll() ([]interface{}, error)
+	GetById(id int) (interface{}, error)
+	Create(item interface{}) (interface{}, error)
+	Update(item interface{}) (interface{}, error)
+	Delete(item interface{}) error
+}
+
 type BaseService[T any] struct {
 	DB *gorm.DB
 }

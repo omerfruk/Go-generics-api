@@ -12,7 +12,10 @@ func Setup(app fiber.Router) {
 	app.Use(logger.New())
 
 	userService := services.NewUserService(database.DB())
-	userHandler := handlers.NewUserHandler(*userService)
+	bookService := services.NewBookService(database.DB())
+
+	userHandler := handlers.NewUserHandler(userService)
+	bookHandler := handlers.NewBookHandler(bookService)
 
 	app.Get("/users", userHandler.GetAll)
 	app.Get("/users/:id", userHandler.GetByID)
@@ -21,10 +24,10 @@ func Setup(app fiber.Router) {
 	app.Delete("/users/:id", userHandler.Delete)
 	app.Get("/users/email/:email", userHandler.GetByEmail)
 
-	/*app.Get("/books", bookService.GetAll)
-	app.Get("/books/:id", bookService.GetById)
-	app.Post("/books", bookService.Create)
-	app.Post("/books/:id", bookService.Update)
-	app.Delete("/books/:id", bookService.Delete)
-	app.Get("/books/author/:author", bookService.GetBookByAuthor)*/
+	app.Get("/books", bookHandler.GetAll)
+	app.Get("/books/:id", bookHandler.GetByID)
+	app.Post("/books", bookHandler.Create)
+	app.Post("/books/:id", bookHandler.Update)
+	app.Delete("/books/:id", bookHandler.Delete)
+	app.Get("/books/author/:author", bookHandler.GetBookByAuthor)
 }

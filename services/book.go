@@ -9,8 +9,8 @@ type BookService struct {
 	BaseService[model.Book]
 }
 
-func NewBookService(db *gorm.DB) *BookService {
-	return &BookService{
+func NewBookService(db *gorm.DB) BookService {
+	return BookService{
 		BaseService[model.Book]{DB: db},
 	}
 }

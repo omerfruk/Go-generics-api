@@ -14,7 +14,7 @@ type BookHandler struct {
 func NewBookHandler(s services.BookService) BookHandler {
 	return BookHandler{
 		BaseHandler: BaseHandler[model.Book]{
-			BaseService: s,
+			BaseService: s.BaseService,
 		},
 		bookService: s,
 	}

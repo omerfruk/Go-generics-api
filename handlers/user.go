@@ -14,7 +14,7 @@ type UserHandler struct {
 func NewUserHandler(s services.UserService) UserHandler {
 	return UserHandler{
 		BaseHandler: BaseHandler[model.User]{
-			BaseService: s,
+			BaseService: s.BaseService,
 		},
 		userService: s,
 	}
