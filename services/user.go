@@ -17,6 +17,6 @@ func NewUserService(db *gorm.DB) UserService {
 
 func (u UserService) GetByEmail(email string) (model.User, error) {
 	var kullanici model.User
-	err := u.DB.Model(kullanici).Where("email = ?", email).Find(&kullanici).Error
+	err := u.DB.Where("email = ?", email).Find(&kullanici).Error
 	return kullanici, err
 }
